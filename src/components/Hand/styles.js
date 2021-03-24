@@ -4,6 +4,14 @@ export default makeStyles ((theme) => ({
         padding: '5rem',
         display: "flex",
         flexFlow: 'row wrap',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        maxWidth: '60%'
     },
+    handWrapper: {
+        position: "absolute",
+        bottom: '10vh',
+       display: "flex",
+        justifyContent: "center",
+        width: "100%"
+    }
 }));

@@ -2,13 +2,13 @@ import React from 'react';
 import useStyles from './styles';
 
 
-const Card = ({imageUrl}) => {
+const Card = ({card, playCard}) => {
 
     const classes = useStyles();
 
     return (
-        <div>
-            <img className={classes.card} src={imageUrl} alt=""/>
+        <div onClick={(event) => playCard(card)}>
+            <img className={classes.card} src={card.imageUrl} alt=""/>
         </div>
     );
 }
