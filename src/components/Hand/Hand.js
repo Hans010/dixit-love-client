@@ -10,9 +10,10 @@ const Hand = () => {
 
 
     const getCards = async () => {
+        const cardsNeeded = 4-cards.length;
+        console.log(cardsNeeded);
         try {
-            const {data} = await api.get(`/cards`);
-                // , {params: (6-cards.length)});
+            const {data} = await api.get(`/${cardsNeeded}` );
             setCards(data);
         } catch (error) {
             console.log(error);
@@ -31,7 +32,6 @@ const Hand = () => {
                 <Card imageUrl={card.imageUrl} key={card._id}  />
             ))}
         </div>
-
     );
 }
 
