@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
+import {useSelector} from "react-redux";
 import Card from "../Card/Card";
 import useStyles from './styles';
 
-const Table = ({cardsInPlay}) => {
+const Table = () => {
+
+    const cardsInPlay = useSelector(state => state.cards.cardsInPlay);
 
     const classes = useStyles();
 

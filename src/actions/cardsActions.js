@@ -10,3 +10,11 @@ export const getCards = (cardsNeeded) => async (dispatch) => {
         console.log(error);
     }
 }
+
+export const playCard = (card) => async (dispatch) => {
+    try {
+        dispatch({type:actionTypes.PLAY_CARD, card});
+    } catch (error) {
+        console.log(error);
+    }
+}

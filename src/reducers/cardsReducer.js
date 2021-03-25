@@ -9,8 +9,13 @@ const cardsReducer = (state = {
 
     switch (action.type) {
         case actionTypes.UPDATE_HAND:
-            console.log('from reducer',action.data);
-            return {...state, hand:[...state.hand, ...action?.data]}
+            return {...state, hand: [...state.hand, ...action?.data]}
+
+        case actionTypes.PLAY_CARD:
+            console.log('reducer', action?.card);
+            const newHand = state.hand.filter(card => card._id !== action?.card?._id);
+            return {...state, hand: newHand, cardsInPlay: [...state.cardsInPlay, action?.card]};
+
         default :
             return state;
     }
