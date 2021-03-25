@@ -1,14 +1,16 @@
 import React from 'react';
 import useStyles from './styles';
+import backImage from'../../assets/back.jpg';
 
 
-const Card = ({card, playCard}) => {
+const Card = ({imageUrl, playCard, hideCard}) => {
 
     const classes = useStyles();
+    const imgUrl = hideCard ? backImage : imageUrl;
 
     return (
-        <div onClick={(event) => playCard(card)}>
-            <img className={classes.card} src={card.imageUrl} alt=""/>
+        <div onClick={playCard}>
+            <img className={classes.card} src={imgUrl} alt=""/>
         </div>
     );
 }

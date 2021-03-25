@@ -8,6 +8,9 @@ export default makeStyles(theme => ({
         width: '100vw',
         height: '100vh',
         position: "relative",
-        textAlign: "center"
+        display: "flex",
+        flexFlow: "column nowrap",
+        justifyContent: "center",
+        alignItems: "center"
     }
 }))
