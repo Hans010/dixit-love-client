@@ -1,8 +1,9 @@
 import React from 'react';
 import useStyles from './styles';
 import {useDispatch, useSelector} from "react-redux";
-import {actionTypes} from '../../constants/actionTypes';
-import {getCards} from "../../actions/cardsActions";
+import {actionTypes} from '../../store/constants/actionTypes';
+import {getCards} from "../../store/actions/cardsActions";
+import {startGame} from "../../api";
 
 const DevHelper = () => {
 
@@ -23,6 +24,7 @@ const DevHelper = () => {
 <div className={classes.helperContainer}>
     <h3 className={classes.title}> This is just a helper element</h3>
 <div className={classes.buttonRack}>
+    <button className={classes.button} onClick={startGame}>Start Game</button>
     <button className={classes.button} onClick={revealCardsHandler}>Reveal cards</button>
     <button className={classes.button} onClick={newRoundHandler}>New Round</button>
 </div>

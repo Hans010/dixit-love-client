@@ -1,5 +1,5 @@
 import {actionTypes} from "../constants/actionTypes";
-import * as api from '../api';
+import * as api from '../../api';
 
 export const submitStory = (story) => async (dispatch) => {
 

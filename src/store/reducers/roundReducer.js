@@ -1,6 +1,6 @@
 import {actionTypes} from "../constants/actionTypes";
 
-const gameReducer = (state = {
+const roundReducer = (state = {
     story: ''
 }, action) => {
 
@@ -16,4 +16,4 @@ const gameReducer = (state = {
     }
 }
 
-export default gameReducer;
+export default roundReducer;

@@ -1,6 +1,6 @@
 import React from 'react';
 import useStyles from './styles';
-import backImage from'../../assets/back.jpg';
+import backImage from '../../../assets/back.jpg';
 
 
 const Card = ({imageUrl, playCard, hideCard}) => {

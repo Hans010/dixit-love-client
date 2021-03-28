@@ -1,29 +1,39 @@
 import Hand from "./components/Hand/Hand";
 import Table from "./components/Table/Table";
 import DevHelper from "./components/DevHelper/DevHelper";
-import StoryForm from "./components/StoryForm/StoryForm";
 import Story from "./components/Story/Story";
 import useStyles from './styles';
+import {useDispatch, useSelector} from "react-redux";
+import StartSplash from "./components/StartSplash/StartSplash";
+import {useEffect} from "react";
+import {registerPlayer} from "./store/actions/playerActions";
+import {startGame} from "./store/actions/gameActions";
 
 function App() {
 
     const classes = useStyles();
+    const playerName = useSelector(state => state.player.name);
+    const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     getCards();
-    // }, []);
+    useEffect(() => {
+        console.log('app rnder');
+        dispatch(startGame());
+        if (localStorage.getItem('playerName')) dispatch(registerPlayer(localStorage.getItem('playerName')));
+    }, []);
 
     return (
         <div className={classes.dixit}>
-            <h1 style={{margin:'0', color:"white", padding:'3rem'}}>Dixit client starts here ;) </h1>
-            <StoryForm />
-            <Story />
-            <Table />
-            <Hand />
-            <DevHelper />
+            {!playerName ? <StartSplash/> :
+                <>
+                    <h1 style={{margin: '0', color: "white", padding: '3rem'}}>Dixit client starts here ;) </h1>
+                    <Story/>
+                    <Table/>
+                    <Hand/>
+                    <DevHelper/>
+                </>
+            }
         </div>
     )
-        ;
 }
 
 export default App;

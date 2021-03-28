@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import Card from "../Card/Card";
+import Card from "../Hand/Card/Card";
 import useStyles from './styles';
 
 const Table = () => {
