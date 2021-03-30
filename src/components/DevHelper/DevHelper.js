@@ -28,7 +28,11 @@ const DevHelper = () => {
 
     socket.on('newDeal', msg => {
         console.log('got a response!!', msg);
-    })
+    });
+
+    const clearStoryHandler = () => {
+        dispatch({type: actionTypes.CLEAR_STORY});
+    }
 
     return (
 <div className={classes.helperContainer}>
@@ -38,6 +42,7 @@ const DevHelper = () => {
     <button className={classes.button} onClick={revealCardsHandler}>Reveal cards</button>
     <button className={classes.button} onClick={newRoundHandler}>New Round</button>
     <button className={classes.button} onClick={socketHandler}>Socket to me baby</button>
+    <button className={classes.button} onClick={clearStoryHandler}>Clear story</button>
 </div>
 </div>
     );

@@ -1,9 +1,12 @@
 import {actionTypes} from "../constants/actionTypes";
-import * as api from '../../api';
+import {socket} from "../../service/socket";
 
-export const submitStory = (story) => async (dispatch) => {
 
-    const {data} = await api.submitStory(story);
-    console.log(data);
-    dispatch({type: actionTypes.SUBMIT_STORY, data})
+export const submitStory = (submittedStory) => (dispatch) => {
+
+    socket.emit('story submitted', submittedStory);
+    socket.on('new story', ({story}) => {
+        dispatch({type: actionTypes.SUBMIT_STORY, story});
+    })
+
 }

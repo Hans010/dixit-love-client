@@ -6,8 +6,9 @@ import useStyles from './styles';
 import {useDispatch, useSelector} from "react-redux";
 import StartSplash from "./components/StartSplash/StartSplash";
 import {useEffect} from "react";
-import {registerPlayer} from "./store/actions/playerActions";
+import {registerPlayer, storePlayer} from "./store/actions/playerActions";
 import {startGame} from "./store/actions/gameActions";
+import {Fragment} from "react";
 
 function App() {
 
@@ -18,13 +19,16 @@ function App() {
     useEffect(() => {
         console.log('app rnder');
         dispatch(startGame());
-        if (localStorage.getItem('playerName')) dispatch(registerPlayer(localStorage.getItem('playerName')));
+        if (localStorage.getItem('player')) {
+            dispatch(storePlayer(JSON.parse(localStorage.getItem('player'))));
+        }
     }, []);
 
     return (
         <div className={classes.dixit}>
-            {!playerName ? <StartSplash/> :
-                <>
+            {!playerName ?
+                    <StartSplash/>
+                : <>
                     <h1 style={{margin: '0', color: "white", padding: '3rem'}}>Dixit client starts here ;) </h1>
                     <Story/>
                     <Table/>

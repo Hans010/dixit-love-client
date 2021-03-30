@@ -6,7 +6,7 @@ const roundReducer = (state = {
 
     switch (action.type) {
         case actionTypes.SUBMIT_STORY:
-            return {...state, story: action?.data || 'sadly, I have no story'};
+            return {...state, story: action?.story || 'sadly, I have no story'};
 
         case actionTypes.CLEAR_STORY:
             return {...state, story: ''};
@@ -15,5 +15,6 @@ const roundReducer = (state = {
             return state;
     }
 }
+
 
 export default roundReducer;

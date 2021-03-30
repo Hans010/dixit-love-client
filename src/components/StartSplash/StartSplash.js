@@ -15,7 +15,6 @@ const StartSplash = () => {
         event.preventDefault();
         if (playerName.trim()) {
             dispatch(registerPlayer(playerName));
-            localStorage.setItem('playerName', playerName);
         }
     }
 
