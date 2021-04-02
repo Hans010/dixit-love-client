@@ -7,7 +7,7 @@ export const startSocketLove = (dispatch) => {
     console.log('socket love is on, baby');
 
     socket.on('player joined', (player) => {
-        console.log('new player joined!');
+        console.log('new player joined!', player);
         dispatch(add2Players(player));
     })
 }
