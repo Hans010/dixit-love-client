@@ -3,8 +3,6 @@ import useStyles from './styles';
 import {useDispatch, useSelector} from "react-redux";
 import {actionTypes} from '../../store/constants/actionTypes';
 import {getCards} from "../../store/actions/cardsActions";
-import {startGame} from "../../api";
-import {socket} from "../../service/socket";
 
 const DevHelper = () => {
 
@@ -21,27 +19,22 @@ const DevHelper = () => {
         dispatch({type: actionTypes.FINISH_PLAY});
     }
 
-    const socketHandler = () => {
-        console.log('socketing...', socket);
-        socket.emit('dixit!', cards[0]);
-    }
-
-    socket.on('newDeal', msg => {
-        console.log('got a response!!', msg);
-    });
-
     const clearStoryHandler = () => {
         dispatch({type: actionTypes.CLEAR_STORY});
+    }
+
+    const clearLocalStorage = () => {
+        localStorage.clear();
     }
 
     return (
 <div className={classes.helperContainer}>
     <h3 className={classes.title}> This is just a helper element</h3>
 <div className={classes.buttonRack}>
-    <button className={classes.button} onClick={startGame}>Start Game</button>
+    <button className={classes.button} onClick={clearLocalStorage}>clear storage</button>
     <button className={classes.button} onClick={revealCardsHandler}>Reveal cards</button>
     <button className={classes.button} onClick={newRoundHandler}>New Round</button>
-    <button className={classes.button} onClick={socketHandler}>Socket to me baby</button>
+    <button className={classes.button}  disabled>Socket to me baby</button>
     <button className={classes.button} onClick={clearStoryHandler}>Clear story</button>
 </div>
 </div>

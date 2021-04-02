@@ -17,8 +17,6 @@ const CardCreator = (props) => {
                 "imageUrl": `https://dixit-cards.s3.eu-west-3.amazonaws.com/${i}.jpg`,
             }
 
-            console.log(newCard)
-
             try {
                 const response = await api.post("/newCard", newCard);
                 console.log(response);

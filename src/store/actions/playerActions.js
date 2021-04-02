@@ -1,13 +1,10 @@
 import {actionTypes} from "../constants/actionTypes";
 import {createPlayer} from "../../api";
-import {v4 as uuidv4} from 'uuid';
-
 
 export const registerPlayer = (playerName) => async (dispatch) => {
     try {
-        await createPlayer({name: playerName, clientId: uuidv4()})
+        await createPlayer({name: playerName, clientId: localStorage.getItem('clientId')})
             .then(({data}) => {
-                console.log('getting player from server', data);
                 dispatch(storePlayer(data));
                 localStorage.setItem('player', JSON.stringify(data));
             });
@@ -16,7 +13,12 @@ export const registerPlayer = (playerName) => async (dispatch) => {
     }
 }
 
-
-export const storePlayer = (player) => (dispatch) => {
-    dispatch({type: actionTypes.REGISTER_PLAYER, player});
+export const add2Players = (playerJoined) => (dispatch) => {
+    dispatch({type: actionTypes.UPDATE_PLAYERS, playerArray: [playerJoined]})
 }
+
+export const storePlayer = (data) => (dispatch) => {
+    dispatch({type: actionTypes.REGISTER_PLAYER, data});
+}
+
+

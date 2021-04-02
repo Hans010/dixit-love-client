@@ -1,5 +1,6 @@
 import {actionTypes} from "../constants/actionTypes";
 import * as api from '../../api';
+import {socket} from "../../service/socket";
 
 export const getCards = (cardsNeeded) => async (dispatch) => {
     try {
@@ -11,9 +12,10 @@ export const getCards = (cardsNeeded) => async (dispatch) => {
 }
 
 export const playCard = (card) => async (dispatch) => {
-    try {
-        dispatch({type:actionTypes.PLAY_CARD, card});
-    } catch (error) {
-        console.log(error);
-    }
+    socket.emit('card played', card);
+    dispatch({type: actionTypes.PLAY_CARD, card});
+
+    socket.on('updated play', (cards) => {
+        dispatch({type: actionTypes.UPDATE_PLAY, updatedPlay: cards});
+    })
 }

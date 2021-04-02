@@ -10,7 +10,6 @@ const cardsReducer = (state = {
 
     switch (action.type) {
         case actionTypes.NEW_ROUND:
-            // console.log('update');
             return {
                 ...state,
                 hand: [...state.hand, ...action?.data],
@@ -22,16 +21,16 @@ const cardsReducer = (state = {
             }
 
         case actionTypes.PLAY_CARD:
-            // console.log('play');
             const updatedHand = state.hand.filter(card => card._id !== action?.card?._id);
-            return {...state, hand: updatedHand, cardsInPlay: [...state.cardsInPlay, action?.card]};
+            return {...state, hand: updatedHand};
+
+        case actionTypes.UPDATE_PLAY:
+            return {...state, cardsInPlay: [...action?.updatedPlay]};
 
         case actionTypes.FINISH_PLAY:
-            // console.log('finish');
             return {...state, hideCards: false}
 
         case actionTypes.IS_STORY_TELLER:
-            // console.log('isStoryTeller');
             return {...state, storyTeller: true}
 
         default :

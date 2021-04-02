@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import useStyles from './styles';
 import {Paper, TextField, Typography, Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
-import {submitStory} from "../../store/actions/storyActions";
+import {submitStory} from "../../../store/actions/storyActions";
 
 const Story = (props) => {
 

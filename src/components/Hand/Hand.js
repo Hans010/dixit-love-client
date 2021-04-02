@@ -3,7 +3,6 @@ import Card from "./Card/Card";
 import useStyles from './styles';
 import {useDispatch, useSelector} from "react-redux";
 import {getCards, playCard} from "../../store/actions/cardsActions";
-import {actionTypes} from "../../store/constants/actionTypes";
 
 const Hand = () => {
     const classes = useStyles();

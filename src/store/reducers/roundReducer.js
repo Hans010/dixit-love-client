@@ -1,7 +1,8 @@
 import {actionTypes} from "../constants/actionTypes";
 
 const roundReducer = (state = {
-    story: ''
+    instruction: '',
+    story: '',
 }, action) => {
 
     switch (action.type) {
