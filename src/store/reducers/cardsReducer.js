@@ -27,11 +27,15 @@ const cardsReducer = (state = {
         case actionTypes.UPDATE_PLAY:
             return {...state, cardsInPlay: [...action?.updatedPlay]};
 
-        case actionTypes.FINISH_PLAY:
+        case actionTypes.REVEAL_PLAY:
             return {...state, hideCards: false}
 
         case actionTypes.IS_STORY_TELLER:
             return {...state, storyTeller: true}
+
+        case 'CLEAR_TABLE':
+            console.log('clearing table');
+            return {...state, cardsInPlay: []};
 
         default :
             return state;

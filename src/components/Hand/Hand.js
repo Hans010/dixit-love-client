@@ -20,6 +20,7 @@ const Hand = () => {
     };
 
     const playCardHandler = (card) => {
+        card.playedBy = JSON.parse(localStorage.getItem('player'))._id;
         if(cards.length <6) return;
         dispatch(playCard(card));
     }

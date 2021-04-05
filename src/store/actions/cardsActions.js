@@ -19,3 +19,8 @@ export const playCard = (card) => async (dispatch) => {
         dispatch({type: actionTypes.UPDATE_PLAY, updatedPlay: cards});
     })
 }
+
+export const finishRound = () => {
+    socket.emit('round finished');
+
+}

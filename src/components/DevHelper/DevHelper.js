@@ -2,7 +2,7 @@ import React from 'react';
 import useStyles from './styles';
 import {useDispatch, useSelector} from "react-redux";
 import {actionTypes} from '../../store/constants/actionTypes';
-import {getCards} from "../../store/actions/cardsActions";
+import {finishRound, getCards} from "../../store/actions/cardsActions";
 
 const DevHelper = () => {
 
@@ -16,11 +16,13 @@ const DevHelper = () => {
     }
 
     const revealCardsHandler = () => {
-        dispatch({type: actionTypes.FINISH_PLAY});
+        dispatch({type: actionTypes.REVEAL_PLAY});
     }
 
-    const clearStoryHandler = () => {
+    const clearRound = () => {
+        console.log('celaring story');
         dispatch({type: actionTypes.CLEAR_STORY});
+        finishRound();
     }
 
     const clearLocalStorage = () => {
@@ -35,7 +37,7 @@ const DevHelper = () => {
     <button className={classes.button} onClick={revealCardsHandler}>Reveal cards</button>
     <button className={classes.button} onClick={newRoundHandler}>New Round</button>
     <button className={classes.button}  disabled>Socket to me baby</button>
-    <button className={classes.button} onClick={clearStoryHandler}>Clear story</button>
+    <button className={classes.button} onClick={clearRound}>Clear Round</button>
 </div>
 </div>
     );
