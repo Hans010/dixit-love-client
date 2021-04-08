@@ -4,21 +4,23 @@ const cardsReducer = (state = {
     hand: [],
     cardsInPlay: [],
     hideCards: true,
-    storyTeller: false,
     startNewRound: true
 }, action) => {
 
     switch (action.type) {
-        case actionTypes.NEW_ROUND:
+        case actionTypes.NEW_ROUND: {
+
+            const hand = state.hand.concat(action?.data);
+
             return {
                 ...state,
                 hand: [...state.hand, ...action?.data],
                 cardsInPlay: [],
-                storyTeller: false,
                 story: '',
                 hideCards: true,
                 startNewRound: true
             }
+        }
 
         case actionTypes.PLAY_CARD:
             const updatedHand = state.hand.filter(card => card._id !== action?.card?._id);

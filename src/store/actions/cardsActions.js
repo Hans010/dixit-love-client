@@ -20,7 +20,16 @@ export const playCard = (card) => async (dispatch) => {
     })
 }
 
+export const voteCard = (cardVote) => async (dispatch) => {
+    console.log('voting');
+    socket.emit('card voted', cardVote);
+
+    socket.on('vote results', (votes) => {
+        dispatch({type: actionTypes.VOTE_RESULTS, voteResults: votes});
+    })
+}
+
 export const finishRound = () => {
     socket.emit('round finished');
-
 }
+

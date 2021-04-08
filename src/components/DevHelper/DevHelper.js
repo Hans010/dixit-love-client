@@ -3,6 +3,7 @@ import useStyles from './styles';
 import {useDispatch, useSelector} from "react-redux";
 import {actionTypes} from '../../store/constants/actionTypes';
 import {finishRound, getCards} from "../../store/actions/cardsActions";
+import {newRound} from "../../store/actions/gameActions";
 
 const DevHelper = () => {
 
@@ -10,7 +11,7 @@ const DevHelper = () => {
     const dispatch = useDispatch();
     const cards = useSelector(state => state.cards.hand);
 
-    const newRoundHandler = () => {
+    const newCardsHandler = () => {
         dispatch(getCards(6-cards.length));
         dispatch({type: actionTypes.CLEAR_STORY});
     }
@@ -29,14 +30,20 @@ const DevHelper = () => {
         localStorage.clear();
     }
 
+    const newRoundHandler = () => {
+        console.log('getting new story teller');
+        dispatch(newRound());
+    }
+
+
     return (
 <div className={classes.helperContainer}>
     <h3 className={classes.title}> This is just a helper element</h3>
 <div className={classes.buttonRack}>
     <button className={classes.button} onClick={clearLocalStorage}>clear storage</button>
     <button className={classes.button} onClick={revealCardsHandler}>Reveal cards</button>
-    <button className={classes.button} onClick={newRoundHandler}>New Round</button>
-    <button className={classes.button}  disabled>Socket to me baby</button>
+    <button className={classes.button} onClick={newCardsHandler}>New cards</button>
+    <button className={classes.button}  onClick={newRoundHandler}>New round</button>
     <button className={classes.button} onClick={clearRound}>Clear Round</button>
 </div>
 </div>

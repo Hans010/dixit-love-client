@@ -10,4 +10,12 @@ export const startSocketLove = (dispatch) => {
         console.log('new player joined!', player);
         dispatch(add2Players(player));
     })
+
+    socket.on('vote success', () => {
+        console.log('vote successful')
+    })
+
+    socket.on('vote fail', () => {
+        console.log('vote fail')
+    })
 }
