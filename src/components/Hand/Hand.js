@@ -9,11 +9,11 @@ const Hand = () => {
     const dispatch = useDispatch();
 
     const cards = useSelector(state => state.cards.hand);
-    const newRound = useSelector(state => state.cards.startNewRound);
+    const getNewCards = useSelector(state => state.cards.getNewCards);
 
     useEffect(() => {
-        if (newRound) fetchNewCards(6-cards.length);
-    }, [newRound]);
+        if (getNewCards) fetchNewCards(6-cards.length);
+    }, [getNewCards]);
 
     const fetchNewCards = (cardsNeeded) => {
         dispatch(getCards(cardsNeeded));

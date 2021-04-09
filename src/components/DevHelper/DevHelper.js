@@ -13,7 +13,6 @@ const DevHelper = () => {
 
     const newCardsHandler = () => {
         dispatch(getCards(6-cards.length));
-        dispatch({type: actionTypes.CLEAR_STORY});
     }
 
     const revealCardsHandler = () => {
@@ -31,8 +30,7 @@ const DevHelper = () => {
     }
 
     const newRoundHandler = () => {
-        console.log('getting new story teller');
-        dispatch(newRound());
+        newRound();
     }
 
 

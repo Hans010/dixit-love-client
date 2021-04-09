@@ -4,18 +4,9 @@ import TopDashboard from "../TopDashboard/TopDashboard";
 import Table from "../Table/Table";
 import Hand from "../Hand/Hand";
 import DevHelper from "../DevHelper/DevHelper";
-import {startSocketLove} from "../../service/socketListeners";
-import {startGame} from "../../store/actions/gameActions";
-import {useDispatch} from "react-redux";
 
 const Game = ({player}) => {
     const classes = useStyles();
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        startSocketLove(dispatch);
-        dispatch(startGame(player));
-    }, []);
 
     return (
         <Fragment>

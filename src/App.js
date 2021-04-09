@@ -5,6 +5,7 @@ import StartSplash from "./components/StartSplash/StartSplash";
 import {useEffect} from "react";
 import {storePlayer} from "./store/actions/playerActions";
 import {actionTypes} from "./store/constants/actionTypes";
+import {startSocketLove} from "./service/socketListeners";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() =>{
+        startSocketLove(dispatch);
         if (localStorage.getItem('player')) {
             dispatch(storePlayer(JSON.parse(localStorage.getItem('player'))));
         }
@@ -24,7 +26,7 @@ function App() {
 
     return (
         <div className={classes.dixit}>
-            {!player.name ?
+            {!(player.name && player.ready2Play) ?
                     <StartSplash/>
                 : <Game player={player}/>
             }

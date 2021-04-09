@@ -1,7 +1,9 @@
 import {actionTypes} from "../constants/actionTypes";
 
 const playerReducer = (state = {
-    player: {},
+    player: {
+        _id: 'noID'
+    },
     storyTeller: false,
     storyTellerName: 'no one',
     players: []
@@ -14,6 +16,9 @@ const playerReducer = (state = {
                 newPlayers = [...state.players, action.data];
             } else newPlayers = [action.data];
             return {...state, player: action.data, players: newPlayers};
+
+        case actionTypes.PLAYER_UPDATE:
+            return {...state, player: action.player};
 
         case actionTypes.UPDATE_PLAYERS:
 
@@ -36,10 +41,11 @@ const playerReducer = (state = {
 
             let isStoryTeller = false;
 
-            if (action.playerId === state.player._id) isStoryTeller = true;
+            console.log(action);
+            if (action.storyTeller === state.player._id) isStoryTeller = true;
 
             const {name} = state.players.filter(player => {
-                    return player._id === action.playerId
+                    return player._id === action.storyTeller
                 }
             )[0];
 

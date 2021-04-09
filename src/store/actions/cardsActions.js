@@ -5,7 +5,7 @@ import {socket} from "../../service/socket";
 export const getCards = (cardsNeeded) => async (dispatch) => {
     try {
         const {data} = await api.dealCards(cardsNeeded);
-        dispatch({type: actionTypes.NEW_ROUND, data});
+        dispatch({type: actionTypes.GET_NEW_CARDS, data});
     } catch (error) {
         console.log(error);
     }
@@ -21,7 +21,6 @@ export const playCard = (card) => async (dispatch) => {
 }
 
 export const voteCard = (cardVote) => async (dispatch) => {
-    console.log('voting');
     socket.emit('card voted', cardVote);
 
     socket.on('vote results', (votes) => {
