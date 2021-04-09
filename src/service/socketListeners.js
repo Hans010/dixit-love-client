@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux";
 import {add2Players} from "../store/actions/playerActions";
 import {newStoryTeller} from "../store/actions/gameActions";
 import {actionTypes} from "../store/constants/actionTypes";
+import {act} from "@testing-library/react";
 
 export const startSocketLove = (dispatch) => {
 
@@ -38,5 +39,8 @@ export const startSocketLove = (dispatch) => {
 
     })
 
+    socket.on('lets play', () => {
+        dispatch({type: actionTypes.LETS_PLAY});
+    })
 
 }

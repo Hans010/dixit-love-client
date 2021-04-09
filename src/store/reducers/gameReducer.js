@@ -5,6 +5,7 @@ const gameReducer = (state = {
     gameId: '',
     scoreBoard: {},
     clientId: '',
+    letsPlay: false
 }, action) => {
     switch (action.type) {
         case actionTypes.START_CLIENT:
@@ -14,6 +15,9 @@ const gameReducer = (state = {
 
         case actionTypes.START_GAME:
             return {...state, gameId: action?.gameId};
+
+        case actionTypes.LETS_PLAY:
+            return {...state, letsPlay: true}
 
         default:
             return state;

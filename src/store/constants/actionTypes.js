@@ -4,6 +4,8 @@ export const actionTypes = {
 
     START_CLIENT: 'START_CLIENT',
     START_GAME: 'START_GAME',
+    LETS_PLAY: 'LETS_PLAY',
+
 
     //players
 

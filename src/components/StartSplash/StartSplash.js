@@ -4,7 +4,7 @@ import {Paper, TextField, Typography, Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {playerReady2Play, registerPlayer} from "../../store/actions/playerActions";
 
-const StartSplash = () => {
+const StartSplash = ({letsPlay}) => {
 
     const [playerName, setPlayerName] = useState('');
     const {_id, name} = useSelector(state => state.player.player);
@@ -43,6 +43,9 @@ const StartSplash = () => {
                 <Paper className={classes.startWrapper}>
                     <Button variant="contained" color="secondary" size="large" onClick={startGameHandler}>START
                         DIXIT!</Button>
+                    {!letsPlay &&
+                    <Typography variant="body2" >Waiting for all players to join</Typography>
+                    }
                 </Paper>
             }
 

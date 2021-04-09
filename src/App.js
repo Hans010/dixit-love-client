@@ -12,6 +12,7 @@ function App() {
 
     const classes = useStyles();
     const player = useSelector(state => state.player.player);
+    const letsPlay = useSelector(state => state.game.letsPlay);
     const dispatch = useDispatch();
 
     useEffect(() =>{
@@ -26,8 +27,8 @@ function App() {
 
     return (
         <div className={classes.dixit}>
-            {!(player.name && player.ready2Play) ?
-                    <StartSplash/>
+            {!(player.name && letsPlay) ?
+                    <StartSplash letsPlay={letsPlay}/>
                 : <Game player={player}/>
             }
         </div>
