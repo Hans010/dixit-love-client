@@ -18,4 +18,5 @@ export const newRound = ()  => {
 
 export const newStoryTeller = (storyTeller) => async (dispatch) => {
     dispatch({type: actionTypes.NEW_STORYTELLER, storyTeller})
+    dispatch({type: actionTypes.CLEAR_STORY});
 }

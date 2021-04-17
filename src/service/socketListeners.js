@@ -4,6 +4,7 @@ import {add2Players} from "../store/actions/playerActions";
 import {newStoryTeller} from "../store/actions/gameActions";
 import {actionTypes} from "../store/constants/actionTypes";
 import {act} from "@testing-library/react";
+import {getCards} from "../store/actions/cardsActions";
 
 export const startSocketLove = (dispatch) => {
 
@@ -35,12 +36,20 @@ export const startSocketLove = (dispatch) => {
         console.log('vote fail')
     })
 
-    socket.on('new round started', (storyTeller) => {
-
+    socket.on('start new round', () => {
+        dispatch({type: actionTypes.NEW_ROUND})
     })
 
     socket.on('lets play', () => {
         dispatch({type: actionTypes.LETS_PLAY});
+        dispatch(getCards());
     })
 
+    socket.on('new story', ({story}) => {
+        dispatch({type: actionTypes.SUBMIT_STORY, story});
+    })
+
+    socket.on('updated play', (cards) => {
+        dispatch({type: actionTypes.UPDATE_PLAY, updatedPlay: cards});
+    })
 }

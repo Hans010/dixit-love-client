@@ -12,9 +12,7 @@ const cardsReducer = (state = {
             return {
                 ...state,
                 cardsInPlay: [],
-                story: '',
                 hideCards: true,
-                startNewRound: true,
                 getNewCards: true
             }
 

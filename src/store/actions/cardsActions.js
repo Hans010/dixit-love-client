@@ -14,10 +14,6 @@ export const getCards = (cardsNeeded) => async (dispatch) => {
 export const playCard = (card) => async (dispatch) => {
     socket.emit('card played', card);
     dispatch({type: actionTypes.PLAY_CARD, card});
-
-    socket.on('updated play', (cards) => {
-        dispatch({type: actionTypes.UPDATE_PLAY, updatedPlay: cards});
-    })
 }
 
 export const voteCard = (cardVote) => async (dispatch) => {

@@ -41,7 +41,6 @@ const playerReducer = (state = {
 
             let isStoryTeller = false;
 
-            console.log(action);
             if (action.storyTeller === state.player._id) isStoryTeller = true;
 
             const {name} = state.players.filter(player => {
