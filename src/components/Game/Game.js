@@ -10,7 +10,7 @@ const Game = ({player}) => {
 
     return (
         <Fragment>
-            <h1 style={{margin: '0', color: "white", padding: '3rem'}}>Dixit client starts here ;) </h1>
+            <h1 style={{margin: '0', color: "white", padding: '3rem'}}>{`Dixit client starts here ${player.name} ;) `}</h1>
             <TopDashboard/>
             <Table/>
             <Hand/>

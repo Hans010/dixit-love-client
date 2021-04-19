@@ -3,7 +3,7 @@ import useStyles from './styles';
 import {useDispatch, useSelector} from "react-redux";
 import {actionTypes} from '../../store/constants/actionTypes';
 import {finishRound, getCards} from "../../store/actions/cardsActions";
-import {newRound} from "../../store/actions/gameActions";
+import {newRound, resolveScore} from "../../store/actions/gameActions";
 
 const DevHelper = () => {
 
@@ -19,10 +19,8 @@ const DevHelper = () => {
         dispatch({type: actionTypes.REVEAL_PLAY});
     }
 
-    const clearRound = () => {
-        console.log('celaring story');
-        dispatch({type: actionTypes.CLEAR_STORY});
-        finishRound();
+    const resolveScr = () => {
+       dispatch(resolveScore);
     }
 
     const clearLocalStorage = () => {
@@ -42,7 +40,7 @@ const DevHelper = () => {
     <button className={classes.button} onClick={revealCardsHandler}>Reveal cards</button>
     <button className={classes.button} onClick={newCardsHandler}>New cards</button>
     <button className={classes.button}  onClick={newRoundHandler}>New round</button>
-    <button className={classes.button} onClick={clearRound}>Clear Round</button>
+    <button className={classes.button} onClick={resolveScr}>Resolve Score</button>
 </div>
 </div>
     );

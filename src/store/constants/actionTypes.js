@@ -21,6 +21,7 @@ export const actionTypes = {
     NEW_STORYTELLER: 'NEW_STORYTELLER',
     SUBMIT_STORY: 'SUBMIT_STORY',
     CLEAR_STORY: 'CLEAR_STORY',
+    UPDATED_SCORES: 'UPDATED_SCORES',
 
     //cards
 

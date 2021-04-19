@@ -52,4 +52,9 @@ export const startSocketLove = (dispatch) => {
     socket.on('updated play', (cards) => {
         dispatch({type: actionTypes.UPDATE_PLAY, updatedPlay: cards});
     })
+
+    socket.on('updated scores', scores => {
+        console.log('got new scores');
+        dispatch({type: actionTypes.UPDATED_SCORES, updatedScores: scores})
+    })
 }

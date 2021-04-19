@@ -50,6 +50,15 @@ const playerReducer = (state = {
 
             return {...state, storyTellerName: name, storyTeller: isStoryTeller}
 
+        case actionTypes.UPDATED_SCORES:
+            const newScores = action.updatedScores;
+            let updatedPlayers = state.players;
+            updatedPlayers.forEach(player => {
+                player.score = newScores[player._id] || player.score;
+            });
+
+            return {...state, players: [...updatedPlayers]}
+
         default:
             return state;
     }

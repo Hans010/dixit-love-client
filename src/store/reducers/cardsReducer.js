@@ -3,6 +3,7 @@ import {actionTypes} from "../constants/actionTypes";
 const cardsReducer = (state = {
     hand: [],
     cardsInPlay: [],
+    cardPlayed: {},
     hideCards: true,
     getNewCards: false
 }, action) => {
@@ -12,6 +13,7 @@ const cardsReducer = (state = {
             return {
                 ...state,
                 cardsInPlay: [],
+                cardPlayed: {},
                 hideCards: true,
                 getNewCards: true
             }
@@ -25,9 +27,10 @@ const cardsReducer = (state = {
 
         case actionTypes.PLAY_CARD:
             const updatedHand = state.hand.filter(card => card._id !== action?.card?._id);
-            return {...state, hand: updatedHand};
+            return {...state, hand: updatedHand, cardPlayed: action.card};
 
         case actionTypes.UPDATE_PLAY:
+
             return {...state, cardsInPlay: [...action?.updatedPlay]};
 
         case actionTypes.REVEAL_PLAY:

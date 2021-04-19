@@ -12,7 +12,7 @@ export default makeStyles(theme => ({
         alignItems: "flex-start",
     },
     playerSlot: {
-        padding: '2rem'
+        padding: '10px'
     }
 
 }));
