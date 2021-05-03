@@ -9,7 +9,7 @@ const MessageBoard = (props) => {
     const classes = useStyles();
 
     return (
-        <p>{`It's ${storyTeller}'s turn!`}</p>
+        <p className={classes.message}>{`${storyTeller} is the storyTeller!`}</p>
     );
 }
 export default MessageBoard;

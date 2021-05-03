@@ -8,7 +8,8 @@ export default makeStyles(theme => ({
         justifyContent: "space-between",
         alignItems: "center",
         margin: "0 1rem",
-        backgroundColor: "grey"
+        backgroundColor: "grey",
+        width: '100%'
     }
 
 }));

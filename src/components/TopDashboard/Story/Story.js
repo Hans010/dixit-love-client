@@ -7,9 +7,9 @@ import {submitStory} from "../../../store/actions/storyActions";
 const Story = (props) => {
 
     const story = useSelector(state => state.round.story);
+    const isStoryTeller = useSelector(state => state.player.storyTeller);
 
     // TODO access local storage to get playerName and check if he's storyteller;
-    const isStoryTeller = true;
 
     const [storyString, setStoryString] = useState('');
     const classes = useStyles();
@@ -17,15 +17,15 @@ const Story = (props) => {
 
     const submitStoryHandler = (event) => {
         event.preventDefault();
-        if (storyString.trim()){
-        dispatch(submitStory({story: storyString}));
-        setStoryString('');
+        if (storyString.trim()) {
+            dispatch(submitStory({story: storyString}));
+            setStoryString('');
         }
     };
 
     return (
         <div className={classes.storyWrapper}>
-            {isStoryTeller &&
+            {(isStoryTeller && !story) &&
             <Paper className={classes.storyFormWrapper}>
                 <Typography variant="h6">Type your story</Typography>
                 <form autoComplete="off" noValidate onSubmit={submitStoryHandler}>
@@ -35,8 +35,7 @@ const Story = (props) => {
                                onChange={(event) => setStoryString(event.target.value)}/>
                     <Button variant="contained" color="primary" size="medium" type="submit">SEND</Button>
                 </form>
-            </Paper>
-            }
+            </Paper>}
             <Typography variant="h2" className={classes.storyText}>{story}</Typography>
         </div>
     );
