@@ -4,6 +4,7 @@ import TopDashboard from "../TopDashboard/TopDashboard";
 import Table from "../Table/Table";
 import Hand from "../Hand/Hand";
 import DevHelper from "../DevHelper/DevHelper";
+import MessageBoard from "../TopDashboard/MessageBoard/MessageBoard";
 
 const Game = ({player}) => {
     const classes = useStyles();
@@ -15,6 +16,7 @@ const Game = ({player}) => {
             <Table/>
             <Hand/>
             <DevHelper/>
+            <MessageBoard/>
         </Fragment>
     );
 }
