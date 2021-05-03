@@ -12,5 +12,11 @@ export default makeStyles(theme => ({
         flexFlow: "column nowrap",
         justifyContent: "center",
         alignItems: "center"
+    },
+
+    devBlock: {
+        position: "absolute",
+        bottom: '0',
+        left: '20px'
     }
 }))

@@ -16,6 +16,7 @@ const Hand = () => {
     }, [getNewCards]);
 
     const fetchNewCards = (cardsNeeded) => {
+        console.log('getting new cards');
         dispatch(getCards(cardsNeeded));
     };
 

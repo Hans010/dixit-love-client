@@ -13,12 +13,10 @@ export const startSocketLove = (dispatch) => {
     // players
 
     socket.on('player joined', (player) => {
-        console.log('new player joined!', player);
         dispatch(add2Players(player));
     })
 
     socket.on('player updated', player => {
-        console.log('got updated player ', player);
         dispatch({type: actionTypes.PLAYER_UPDATE, player});
     })
 
@@ -42,7 +40,7 @@ export const startSocketLove = (dispatch) => {
 
     socket.on('lets play', () => {
         dispatch({type: actionTypes.LETS_PLAY});
-        dispatch(getCards());
+        // dispatch(getCards());
     })
 
     socket.on('new story', ({story}) => {

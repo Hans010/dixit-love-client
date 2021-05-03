@@ -10,8 +10,15 @@ const LeaderBoard = (props) => {
 
     return (
         <ul className={classes.leaderBoard}>
-            {players.map((player, index) =>
-                <li className={classes.playerSlot} key={index}>{player.name} - {player.score}</li>
+            {players.map((player, index) => {
+                const avatarUrl = `https://robohash.org/${player.name}?set=set4`;
+                return (
+                <li className={classes.playerSlot} key={index}>
+                    <div className={classes.playerRow}>
+                        <img className={classes.avatar} src={avatarUrl} alt=""/>
+                        <p>{player.name} - {player.score}</p>
+                    </div>
+                </li>)}
             )}
         </ul>
     );

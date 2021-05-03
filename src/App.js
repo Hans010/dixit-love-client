@@ -6,6 +6,7 @@ import {useEffect} from "react";
 import {storePlayer} from "./store/actions/playerActions";
 import {actionTypes} from "./store/constants/actionTypes";
 import {startSocketLove} from "./service/socketListeners";
+import DevHelper from "./components/DevHelper/DevHelper";
 
 
 function App() {

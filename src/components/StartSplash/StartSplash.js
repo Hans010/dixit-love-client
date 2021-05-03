@@ -3,6 +3,7 @@ import useStyles from './styles';
 import {Paper, TextField, Typography, Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {playerReady2Play, registerPlayer} from "../../store/actions/playerActions";
+import DevHelper from "../DevHelper/DevHelper";
 
 const StartSplash = ({letsPlay}) => {
 
@@ -44,11 +45,11 @@ const StartSplash = ({letsPlay}) => {
                     <Button variant="contained" color="secondary" size="large" onClick={startGameHandler}>START
                         DIXIT!</Button>
                     {!letsPlay &&
-                    <Typography variant="body2" >Waiting for all players to join</Typography>
+                    <Typography variant="body2">Waiting for all players to join</Typography>
                     }
                 </Paper>
             }
-
+            <DevHelper/>
         </div>
     );
 }
