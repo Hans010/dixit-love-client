@@ -7,6 +7,7 @@ import {submitStory} from "../../../store/actions/storyActions";
 const Story = (props) => {
 
     const story = useSelector(state => state.round.story);
+    const storyTeller = useSelector(state => state.player.storyTellerName);
     const isStoryTeller = useSelector(state => state.player.storyTeller);
 
     // TODO access local storage to get playerName and check if he's storyteller;
@@ -30,6 +31,7 @@ const Story = (props) => {
                 <Typography variant="h6" className={classes.textTip}>Type your story</Typography>
                 <form autoComplete="off" noValidate onSubmit={submitStoryHandler}>
                     <TextField className={classes.inputField} name="story" variant="outlined" fullWidth
+                               autoFocus
                                multiline="true"
                                inputProps={{className: `${classes.textTip} ${classes.inputField}`}}
                                value={storyString}
@@ -40,7 +42,7 @@ const Story = (props) => {
             </Paper>}
             {story &&
             <div>
-                <Typography variant="h6" className={classes.textTip}>The current story is</Typography>
+                <Typography variant="h6" className={classes.textTip}>{storyTeller}'s story</Typography>
                 <Typography variant="h2" className={classes.textTip}>{story}</Typography>
             </div>
             }

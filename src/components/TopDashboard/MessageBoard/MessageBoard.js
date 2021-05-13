@@ -28,7 +28,7 @@ const MessageBoard = (props) => {
 
     return (
 
-        <Typography className={classes.message} variant="h3"  >{message}</Typography>
+        <Typography className={classes.message} variant="h4"  >{message}</Typography>
     );
 }
 export default MessageBoard;
