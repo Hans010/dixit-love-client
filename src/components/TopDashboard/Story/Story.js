@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import useStyles from './styles';
 import {Paper, TextField, Typography, Button} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
@@ -41,10 +41,10 @@ const Story = (props) => {
                 </form>
             </Paper>}
             {story &&
-            <div>
+            <Fragment>
                 <Typography variant="h6" className={classes.textTip}>{storyTeller}'s story</Typography>
                 <Typography variant="h2" className={classes.textTip}>{story}</Typography>
-            </div>
+            </Fragment>
             }
         </div>
     );

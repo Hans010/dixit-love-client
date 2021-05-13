@@ -1,5 +1,6 @@
 import {makeStyles} from '@material-ui/core/styles';
-export default makeStyles ((theme) => ({
+
+export default makeStyles((theme) => ({
     hand: {
         padding: '5rem',
         display: "flex",
@@ -8,8 +9,9 @@ export default makeStyles ((theme) => ({
         maxWidth: '60%'
     },
     handWrapper: {
-
-       display: "flex",
+        // position: "absolute",
+        // bottom: '5%',
+        display: "flex",
         justifyContent: "center",
         width: "100%"
     }

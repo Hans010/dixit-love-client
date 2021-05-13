@@ -23,6 +23,9 @@ export default makeStyles(theme => ({
         height: '100%'
     },
     button: {
+        position: "absolute",
+        bottom: '0',
+        left: '0',
         margin: '0.5rem 0',
         padding: '10px 20px',
         minWidth: '12rem'
