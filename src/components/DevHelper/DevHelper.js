@@ -11,38 +11,37 @@ const DevHelper = () => {
     const dispatch = useDispatch();
     const cards = useSelector(state => state.cards.hand);
 
-    const newCardsHandler = () => {
-        dispatch(getCards(6-cards.length));
-    }
-
-    const revealCardsHandler = () => {
-        dispatch({type: actionTypes.REVEAL_PLAY});
-    }
-
-    const resolveScr = () => {
-       dispatch(resolveScore);
-    }
+    // const newCardsHandler = () => {
+    //     dispatch(getCards(6-cards.length));
+    // }
+    //
+    // const revealCardsHandler = () => {
+    //     dispatch({type: actionTypes.REVEAL_PLAY});
+    // }
+    //
+    // const resolveScr = () => {
+    //    dispatch(resolveScore);
+    // }
 
     const clearLocalStorage = () => {
         localStorage.clear();
     }
 
-    const newRoundHandler = () => {
-        newRound();
-    }
-
+    // const newRoundHandler = () => {
+    //     newRound();
+    // }
 
     return (
-<div className={classes.helperContainer}>
-    <h3 className={classes.title}> This is just a helper element</h3>
-<div className={classes.buttonRack}>
-    <button className={classes.button} onClick={clearLocalStorage}>clear storage</button>
-    <button className={classes.button} onClick={revealCardsHandler}>Reveal cards</button>
-    <button className={classes.button} onClick={newCardsHandler}>New cards</button>
-    <button className={classes.button}  onClick={newRoundHandler}>New round</button>
-    <button className={classes.button} onClick={resolveScr}>Resolve Score</button>
-</div>
-</div>
+        // <div className={classes.helperContainer}>
+        //     {/*<h3 className={classes.title}> This is just a helper element</h3>*/}
+        //     <div className={classes.buttonRack}>
+                <button className={classes.button} onClick={clearLocalStorage}>clear storage</button>
+                // {/*<button className={classes.button} onClick={revealCardsHandler}>Reveal cards</button>*/}
+                // {/*<button className={classes.button} onClick={newCardsHandler}>New cards</button>*/}
+                // {/*<button className={classes.button}  onClick={newRoundHandler}>New round</button>*/}
+                // {/*<button className={classes.button} onClick={resolveScr}>Resolve Score</button>*/}
+            // </div>
+        // </div>
     );
 }
 

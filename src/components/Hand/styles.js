@@ -8,8 +8,7 @@ export default makeStyles ((theme) => ({
         maxWidth: '60%'
     },
     handWrapper: {
-        position: "absolute",
-        bottom: '10vh',
+
        display: "flex",
         justifyContent: "center",
         width: "100%"

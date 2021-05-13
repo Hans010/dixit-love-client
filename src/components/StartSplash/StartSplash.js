@@ -22,7 +22,7 @@ const StartSplash = ({letsPlay}) => {
     }
 
     const startGameHandler = () => {
-        console.log('player ready to start');
+        // console.log('player ready to start');
         playerReady2Play(_id);
     }
 

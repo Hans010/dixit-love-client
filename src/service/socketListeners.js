@@ -20,7 +20,14 @@ export const startSocketLove = (dispatch) => {
         dispatch({type: actionTypes.PLAYER_UPDATE, player});
     })
 
+    socket.on('lets play', () => {
+        localStorage.setItem('letsPlay', true);
+        dispatch({type: actionTypes.LETS_PLAY});
+        // dispatch(getCards());
+    })
+
     socket.on('new storyTeller', playerId => {
+        console.log('new story teller',  playerId);
         dispatch(newStoryTeller(playerId));
     });
 
@@ -36,11 +43,6 @@ export const startSocketLove = (dispatch) => {
 
     socket.on('start new round', () => {
         dispatch({type: actionTypes.NEW_ROUND})
-    })
-
-    socket.on('lets play', () => {
-        dispatch({type: actionTypes.LETS_PLAY});
-        // dispatch(getCards());
     })
 
     socket.on('new story', ({story}) => {

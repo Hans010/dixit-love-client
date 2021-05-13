@@ -16,6 +16,8 @@ function App() {
     const letsPlay = useSelector(state => state.game.letsPlay);
     const dispatch = useDispatch();
 
+    if (localStorage.getItem('letsPlay')) dispatch({type: actionTypes.LETS_PLAY});
+
     useEffect(() =>{
         startSocketLove(dispatch);
         if (localStorage.getItem('player')) {
@@ -28,7 +30,8 @@ function App() {
 
     return (
         <div className={classes.dixit}>
-            {!(player.name && letsPlay) ?
+            {!(player.name
+                && letsPlay) ?
                     <StartSplash letsPlay={letsPlay}/>
                 : <Game player={player}/>
             }

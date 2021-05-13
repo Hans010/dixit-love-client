@@ -19,6 +19,9 @@ export const registerPlayer = (playerName) => async (dispatch) => {
 }
 
 export const playerReady2Play = (playerId) => {
+    let player = JSON.parse(localStorage.getItem('player'));
+    player.ready2Play = true;
+    localStorage.setItem('player', JSON.stringify(player));
     socket.emit('player ready2Play', playerId);
 }
 

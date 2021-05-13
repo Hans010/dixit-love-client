@@ -27,16 +27,23 @@ const Story = (props) => {
         <div className={classes.storyWrapper}>
             {(isStoryTeller && !story) &&
             <Paper className={classes.storyFormWrapper}>
-                <Typography variant="h6">Type your story</Typography>
+                <Typography variant="h6" className={classes.textTip}>Type your story</Typography>
                 <form autoComplete="off" noValidate onSubmit={submitStoryHandler}>
-                    <TextField name="story" variant="outlined" label="Type your story here" fullWidth
+                    <TextField className={classes.inputField} name="story" variant="outlined" fullWidth
+                               multiline="true"
+                               inputProps={{className: `${classes.textTip} ${classes.inputField}`}}
                                value={storyString}
                                required
                                onChange={(event) => setStoryString(event.target.value)}/>
-                    <Button variant="contained" color="primary" size="medium" type="submit">SEND</Button>
+                    <Button className={classes.go} variant="contained" size="medium" type="submit">GO!</Button>
                 </form>
             </Paper>}
-            <Typography variant="h2" className={classes.storyText}>{story}</Typography>
+            {story &&
+            <div>
+                <Typography variant="h6" className={classes.textTip}>The current story is</Typography>
+                <Typography variant="h2" className={classes.textTip}>{story}</Typography>
+            </div>
+            }
         </div>
     );
 }

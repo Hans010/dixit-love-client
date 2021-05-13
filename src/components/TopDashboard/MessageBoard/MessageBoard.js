@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Typography} from "@material-ui/core";
 import useStyles from './styles';
 import {useSelector} from "react-redux";
 
@@ -11,6 +12,7 @@ const MessageBoard = (props) => {
     const [message, setMessage] = useState(`${storyTeller.toUpperCase()} IS THE STORYTELLER`);
 
     useEffect(() => {
+        setMessage(`${storyTeller.toUpperCase()} IS THE STORYTELLER`);
         if (hasStory.length > 0) {
             setMessage('SELECT A CARD TO MATCH THE STORY');
         } else {
@@ -20,12 +22,13 @@ const MessageBoard = (props) => {
             setMessage("VOTE ON THE STORYTELLER'S CARD");
         }
         console.log(message);
-    }, [hasStory, hideCards])
+    }, [hasStory, hideCards, storyTeller])
 
     const classes = useStyles();
 
     return (
-        <p>{message}</p>
+
+        <Typography className={classes.message} variant="h3"  >{message}</Typography>
     );
 }
 export default MessageBoard;

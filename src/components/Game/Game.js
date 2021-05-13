@@ -1,22 +1,26 @@
-import React, {Fragment, useEffect} from 'react';
+import React, {Fragment} from 'react';
 import useStyles from './styles';
 import TopDashboard from "../TopDashboard/TopDashboard";
 import Table from "../Table/Table";
 import Hand from "../Hand/Hand";
 import DevHelper from "../DevHelper/DevHelper";
 import MessageBoard from "../TopDashboard/MessageBoard/MessageBoard";
+import Story from "../TopDashboard/Story/Story";
+import {useSelector} from "react-redux";
+import LeaderBoard from "../TopDashboard/LeaderBoard/LeaderBoard";
 
-const Game = ({player}) => {
+const Game = () => {
     const classes = useStyles();
 
     return (
         <Fragment>
-            <h1 style={{margin: '0', color: "white", padding: '3rem'}}>{`Dixit client starts here ${player.name} ;) `}</h1>
-            <TopDashboard/>
-            <Table/>
-            <Hand/>
-            <DevHelper/>
-            <MessageBoard/>
+            <div className={classes.gameWrapper}>
+                <TopDashboard/>
+                <LeaderBoard/>
+                <Table/>
+                <Hand/>
+                <DevHelper/>
+            </div>
         </Fragment>
     );
 }

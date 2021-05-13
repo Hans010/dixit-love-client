@@ -4,11 +4,10 @@ export default makeStyles(theme => ({
 
     topDashboard: {
         display: "flex",
-        flexFlow: "row nowrap",
-        justifyContent: "space-between",
+        flexFlow: "column nowrap",
+        justifyContent: "flex-start",
         alignItems: "center",
-        margin: "0 1rem",
-        backgroundColor: "grey",
+        marginTop: '50px',
         width: '100%'
     }
 

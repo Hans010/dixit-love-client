@@ -10,8 +10,7 @@ export default makeStyles(theme => ({
         position: "relative",
         display: "flex",
         flexFlow: "column nowrap",
-        justifyContent: "center",
-        alignItems: "center"
+        justifyContent: "flex-start",
     },
 
     devBlock: {
