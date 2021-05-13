@@ -15,7 +15,8 @@ export default makeStyles(theme => ({
         maxWidth: '200px;',
         margin: '0',
         padding: '25px',
-        backgroundColor: 'rgba(200,200,200, 0.3)',
+        // backgroundColor: 'rgba(200,200,200, 0.5)',
+        backgroundColor: 'rgba(0,0,0,0.4)',
     },
     playerSlot: {
         padding: '10px'
@@ -24,7 +25,8 @@ export default makeStyles(theme => ({
         display: "flex",
         flexFlow: 'row nowrap',
         justifyContent: "flex-start",
-        alignItems: "center"
+        alignItems: "center",
+        color: "white"
         },
     avatar: {
         maxWidth: '50px',
